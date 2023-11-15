@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* Анимация набора текста */
     const words = ['вашего бизнеса ', 'онлайн-образования ', 'финансов ', 'e-commerce '];
     let index = 0;
     const paragraph = document.getElementById('typing');
@@ -93,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     nestedTabSelect('ul.cases_tabs-btns', 'active');
 
 
+    /* взаимодействие с меню */
     let burgerBtn = document.querySelector('header .burger-btn'),
         headerMenu = document.querySelector('header .menu'),
         body = document.querySelector('body');
@@ -109,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
+    /* слайдер */
     $('.clients-items.mobile').slick({
         infinite: false,
         slidesToShow: 1,
@@ -121,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    /* переключение табов */
     var nestedTabSelect = (tabsElement, currentElement) => {
         const tabs = tabsElement ?? 'ul.stages-tabs';
 
@@ -172,9 +175,8 @@ document.addEventListener("DOMContentLoaded", function () {
     nestedTabSelect('ul.stages-tabs', 'active');
 
 
-
+    /* выпадающий список */
     const selectedAll = document.querySelectorAll(".wrapper-dropdown");
-
     selectedAll.forEach((selected) => {
         const optionsContainer = selected.children[2];
         const optionsList = selected.querySelectorAll("div.wrapper-dropdown li");
@@ -204,14 +206,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // check if anything else ofther than the dropdown is clicked
     window.addEventListener("click", function (e) {
         if (e.target.closest(".wrapper-dropdown") === null) {
             closeAllDropdowns();
         }
     });
 
-    // close all the dropdowns
     function closeAllDropdowns() {
         const selectedAll = document.querySelectorAll(".wrapper-dropdown");
         selectedAll.forEach((selected) => {
@@ -222,7 +222,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // open all the dropdowns
     function handleDropdown(dropdown, arrow, open) {
         if (open) {
             arrow.classList.add("rotated");
@@ -233,6 +232,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+
+    /* переключение табов */
     var nestedTabSelect = (tabsElement, currentElement) => {
         const tabs = tabsElement ?? 'ul.dropdown';
 
@@ -296,8 +297,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
 
-
-
+    /* ajax-отправка почты */
     $('.modal-form').submit(function () {
         var form = $(this);
         var error = false;
@@ -334,8 +334,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return false;
     });
 
+
+    /* маска для телефона */
     $("input[name=tel]").mask("+7 (999) 999-99-99");
 
+
+    /* анимация появления блоков */
     AOS.init();
 
 });
