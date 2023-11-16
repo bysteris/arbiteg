@@ -1021,6 +1021,14 @@ header .header__container .menu>li:focus {
     margin-top: calc(30px + (40 - 30) * ((100vw - 900px) / (1920 - 900)));
 }
 
+.cases__container .cases_tabs-item .right .tab-txt.bottom-txt {
+    display: none;
+}
+
+.cases__container .cases_tabs-item .right .tab-txt.bottom-txt.active {
+    display: block;
+}
+
 .cases__container .cases_tabs-item .right .btns {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1034,6 +1042,7 @@ header .header__container .menu>li:focus {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
+    padding: 0;
     margin: 20px 0;
     border: 3px solid #FFF;
     border-radius: 20px;
@@ -1042,8 +1051,11 @@ header .header__container .menu>li:focus {
 
 .cases__container .cases_tabs-item .right .btns .btn {
     padding: calc(5px + (10 - 5) * ((100vw - 900px) / (1920 - 900))) calc(12px + (24 - 12) * ((100vw - 900px) / (1920 - 900)));
+    list-style-type: none;
     font-size: calc(14px + (16 - 14) * ((100vw - 900px) / (1920 - 900)));
     cursor: pointer;
+    transition: all ease-in .2s;
+    scale: 0.9;
 }
 
 
@@ -1052,6 +1064,8 @@ header .header__container .menu>li:focus {
     background: #FCC103;
     color: #1C1C2F;
     font-weight: 550;
+    transition: all ease-in .2s;
+    scale: 1;
 }
 
 

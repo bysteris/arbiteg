@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* Анимация набора текста */
     const words = ['вашего бизнеса ', 'онлайн-образования ', 'финансов ', 'e-commerce '];
     let index = 0;
     const paragraph = document.getElementById('typing');
@@ -94,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
     nestedTabSelect('ul.cases_tabs-btns', 'active');
 
 
-    /* взаимодействие с меню */
     let burgerBtn = document.querySelector('header .burger-btn'),
         headerMenu = document.querySelector('header .menu'),
         body = document.querySelector('body');
@@ -111,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* слайдер */
+
     $('.clients-items.mobile').slick({
         infinite: false,
         slidesToShow: 1,
@@ -123,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* переключение табов */
     var nestedTabSelect = (tabsElement, currentElement) => {
         const tabs = tabsElement ?? 'ul.stages-tabs';
 
@@ -175,8 +172,9 @@ document.addEventListener("DOMContentLoaded", function () {
     nestedTabSelect('ul.stages-tabs', 'active');
 
 
-    /* выпадающий список */
+
     const selectedAll = document.querySelectorAll(".wrapper-dropdown");
+
     selectedAll.forEach((selected) => {
         const optionsContainer = selected.children[2];
         const optionsList = selected.querySelectorAll("div.wrapper-dropdown li");
@@ -206,12 +204,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // check if anything else ofther than the dropdown is clicked
     window.addEventListener("click", function (e) {
         if (e.target.closest(".wrapper-dropdown") === null) {
             closeAllDropdowns();
         }
     });
 
+    // close all the dropdowns
     function closeAllDropdowns() {
         const selectedAll = document.querySelectorAll(".wrapper-dropdown");
         selectedAll.forEach((selected) => {
@@ -222,6 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // open all the dropdowns
     function handleDropdown(dropdown, arrow, open) {
         if (open) {
             arrow.classList.add("rotated");
@@ -232,8 +233,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-
-    /* переключение табов */
     var nestedTabSelect = (tabsElement, currentElement) => {
         const tabs = tabsElement ?? 'ul.dropdown';
 
@@ -284,6 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     nestedTabSelect('ul.dropdown', 'active');
 
+
     let modalOpen = document.querySelectorAll('.modal-open'),
         modal = document.querySelector('.modal'),
         modalClose = document.querySelector('.modal-close');
@@ -297,7 +297,6 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
 
-    /* ajax-отправка почты */
     $('.modal-form').submit(function () {
         var form = $(this);
         var error = false;
@@ -334,12 +333,131 @@ document.addEventListener("DOMContentLoaded", function () {
         return false;
     });
 
-
-    /* маска для телефона */
     $("input[name=tel]").mask("+7 (999) 999-99-99");
 
-
-    /* анимация появления блоков */
     AOS.init();
 
+    /* переключение кнопок в кейсах SMM */
+    let smmBtnOneMounth = document.getElementById('smm-btn-one-mounth'),
+        smmBtnTwoMounth = document.getElementById('smm-btn-two-mounth'),
+        smmTxtOneMounth = document.getElementById('smm-txt-one-mounth'),
+        smmTxtTwoMounth = document.getElementById('smm-txt-two-mounth');
+
+    smmBtnOneMounth.addEventListener('click', function () {
+        smmBtnTwoMounth.classList.remove('active');
+        smmTxtTwoMounth.classList.remove('active');
+        smmBtnOneMounth.classList.add('active');
+        smmTxtOneMounth.classList.add('active');
+    });
+    smmBtnTwoMounth.addEventListener('click', function () {
+        smmBtnOneMounth.classList.remove('active');
+        smmTxtOneMounth.classList.remove('active');
+        smmBtnTwoMounth.classList.add('active');
+        smmTxtTwoMounth.classList.add('active');
+    });
+
+    /* переключение кнопок в кейсах Обучение фото */
+    let photoTrainigBtnOneMounth = document.getElementById('photo-training-btn-one-mounth'),
+        photoTrainigBtnTwoMounth = document.getElementById('photo-training-btn-two-mounth'),
+        photoTrainigBtnThreeMounth = document.getElementById('photo-training-btn-three-mounth'),
+        photoTrainigTxtOneMounth = document.getElementById('photo-training-txt-one-mounth'),
+        photoTrainigTxtTwoMounth = document.getElementById('photo-training-txt-two-mounth'),
+        photoTrainigTxtThreeMounth = document.getElementById('photo-training-txt-three-mounth');
+
+    photoTrainigBtnOneMounth.addEventListener('click', function () {
+        photoTrainigBtnTwoMounth.classList.remove('active');
+        photoTrainigTxtTwoMounth.classList.remove('active');
+        photoTrainigBtnThreeMounth.classList.remove('active');
+        photoTrainigTxtThreeMounth.classList.remove('active');
+        photoTrainigBtnOneMounth.classList.add('active');
+        photoTrainigTxtOneMounth.classList.add('active');
+    });
+    photoTrainigBtnTwoMounth.addEventListener('click', function () {
+        photoTrainigBtnOneMounth.classList.remove('active');
+        photoTrainigTxtOneMounth.classList.remove('active');
+        photoTrainigBtnThreeMounth.classList.remove('active');
+        photoTrainigTxtThreeMounth.classList.remove('active');
+        photoTrainigBtnTwoMounth.classList.add('active');
+        photoTrainigTxtTwoMounth.classList.add('active');
+    });
+    photoTrainigBtnThreeMounth.addEventListener('click', function () {
+        photoTrainigBtnOneMounth.classList.remove('active');
+        photoTrainigTxtOneMounth.classList.remove('active');
+        photoTrainigBtnTwoMounth.classList.remove('active');
+        photoTrainigTxtTwoMounth.classList.remove('active');
+        photoTrainigBtnThreeMounth.classList.add('active');
+        photoTrainigTxtThreeMounth.classList.add('active');
+
+    });
+
+    /* переключение кнопок в кейсах Обучение Бизнес на маркетплейсах */
+    let businessBtnOneMounth = document.getElementById('business-btn-one-mounth'),
+        businessBtnTwoMounth = document.getElementById('business-btn-two-mounth'),
+        businessBtnThreeMounth = document.getElementById('business-btn-three-mounth'),
+        businessTxtOneMounth = document.getElementById('business-txt-one-mounth'),
+        businessTxtTwoMounth = document.getElementById('business-txt-two-mounth'),
+        businessTxtThreeMounth = document.getElementById('business-txt-three-mounth');
+
+    businessBtnOneMounth.addEventListener('click', function () {
+        businessBtnTwoMounth.classList.remove('active');
+        businessTxtTwoMounth.classList.remove('active');
+        businessBtnThreeMounth.classList.remove('active');
+        businessTxtThreeMounth.classList.remove('active');
+        businessBtnOneMounth.classList.add('active');
+        businessTxtOneMounth.classList.add('active');
+    });
+    businessBtnTwoMounth.addEventListener('click', function () {
+        businessBtnOneMounth.classList.remove('active');
+        businessTxtOneMounth.classList.remove('active');
+        businessBtnThreeMounth.classList.remove('active');
+        businessTxtThreeMounth.classList.remove('active');
+        businessBtnTwoMounth.classList.add('active');
+        businessTxtTwoMounth.classList.add('active');
+    });
+    businessBtnThreeMounth.addEventListener('click', function () {
+        businessBtnOneMounth.classList.remove('active');
+        businessTxtOneMounth.classList.remove('active');
+        businessBtnTwoMounth.classList.remove('active');
+        businessTxtTwoMounth.classList.remove('active');
+        businessBtnThreeMounth.classList.add('active');
+        businessTxtThreeMounth.classList.add('active');
+    });
+
+    /* переключение кнопок в кейсах Маркетплейсы */
+    let marketplacesBtnOneMounth = document.getElementById('marketplaces-btn-one-mounth'),
+        marketplacesBtnTwoMounth = document.getElementById('marketplaces-btn-two-mounth'),
+        marketplacesTxtOneMounth = document.getElementById('marketplaces-txt-one-mounth'),
+        marketplacesTxtTwoMounth = document.getElementById('marketplaces-txt-two-mounth');
+
+    marketplacesBtnOneMounth.addEventListener('click', function () {
+        marketplacesBtnTwoMounth.classList.remove('active');
+        marketplacesTxtTwoMounth.classList.remove('active');
+        marketplacesBtnOneMounth.classList.add('active');
+        marketplacesTxtOneMounth.classList.add('active');
+    });
+    marketplacesBtnTwoMounth.addEventListener('click', function () {
+        marketplacesBtnOneMounth.classList.remove('active');
+        marketplacesTxtOneMounth.classList.remove('active');
+        marketplacesBtnTwoMounth.classList.add('active');
+        marketplacesTxtTwoMounth.classList.add('active');
+    });
+
+    /* переключение кнопок в кейсах Крипта */
+    let cryptoBtnOneMounth = document.getElementById('crypto-btn-one-mounth'),
+        cryptoBtnTwoMounth = document.getElementById('crypto-btn-two-mounth'),
+        cryptoTxtOneMounth = document.getElementById('crypto-txt-one-mounth'),
+        cryptoTxtTwoMounth = document.getElementById('crypto-txt-two-mounth');
+
+    cryptoBtnOneMounth.addEventListener('click', function () {
+        cryptoBtnTwoMounth.classList.remove('active');
+        cryptoTxtTwoMounth.classList.remove('active');
+        cryptoBtnOneMounth.classList.add('active');
+        cryptoTxtOneMounth.classList.add('active');
+    });
+    cryptoBtnTwoMounth.addEventListener('click', function () {
+        cryptoBtnOneMounth.classList.remove('active');
+        cryptoTxtOneMounth.classList.remove('active');
+        cryptoBtnTwoMounth.classList.add('active');
+        cryptoTxtTwoMounth.classList.add('active');
+    });
 });

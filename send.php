@@ -31,7 +31,7 @@ $subject = "Заявка с сайта Arbiteg";
 $headers = "Content-type: text/html; charset=utf-8 \r\n";
 $headers .= 'From: admin@no-reply.ru' . "\r\n";
 
-$to = "sb.steris@gmail.com, ya.dom19@yandex.ru";
+$to = "dmitryvolozhaninov@gmail.com";
 $result = mail($to, $subject, $message, $headers);
 
 if ($result) {
